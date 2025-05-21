@@ -72,3 +72,7 @@ The application uses a PostgreSQL database with the following main entities:
 - Restaurants (with details like name, rating, category, images)
 - Featured Items (special promotions or highlights)
 - Categories (types of restaurants)
+
+## App screenshot
+<img width="1440" alt="Screenshot 2025-05-21 at 11 55 51 at night" src="https://github.com/user-attachments/assets/ae38a627-3418-4d40-9522-6014d1ce6f30" />
+
