@@ -1,37 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Restaurant Listing Application
+
+A modern restaurant listing application built with Next.js, TypeScript, tRPC, and Prisma, featuring a beautiful UI and powerful search functionality.
+
+## Tech Stack
+
+- **Frontend**: Next.js with TypeScript
+- **Styling**: Tailwind CSS
+- **API Layer**: tRPC
+- **Database**: PostgreSQL with Prisma ORM
+- **Image Handling**: Next.js Image Component
+
+## Features
+
+- 🔍 Real-time search functionality
+- 📑 Category-based filtering
+- ⭐ Restaurant ratings and reviews
+- 💟 Favorite restaurant functionality
+- 📱 Responsive grid layout
+- 🖼️ High-quality restaurant images
+- 🏷️ Price range indicators
+- 📍 City-based filtering
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (v14 or higher)
+- PostgreSQL
+- PNPM (recommended) or NPM
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd restaurant-test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up your environment variables:
+```bash
+cp .env.example .env
+```
+Update the `.env` file with your PostgreSQL connection string.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Initialize the database:
+```bash
+pnpm prisma db push
+pnpm prisma generate
+```
 
-## Learn More
+5. Seed the database:
+```bash
+pnpm prisma db seed
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Start the development server:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The application will be available at `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Database Schema
 
-## Deploy on Vercel
+The application uses a PostgreSQL database with the following main entities:
+- Restaurants (with details like name, rating, category, images)
+- Featured Items (special promotions or highlights)
+- Categories (types of restaurants)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# restaurant-test-assignment-
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
