@@ -29,17 +29,19 @@ export function Restaurant({ restaurant }: RestaurantProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden">
+    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
       <div className="relative aspect-[4/3]">
         <Image
           src={restaurant.images[0]}
           alt={restaurant.name}
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <button
           onClick={handleFavoriteClick}
-          className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md z-10"
+          className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md z-10 hover:scale-110 transition-transform duration-200"
+          aria-label={restaurant.isFavorite ? "Remove from favorites" : "Add to favorites"}
         >
           {restaurant.isFavorite ? (
             <HeartIcon className="w-6 h-6 text-red-500" />
@@ -48,29 +50,32 @@ export function Restaurant({ restaurant }: RestaurantProps) {
           )}
         </button>
         {restaurant.featured && (
-          <div className="absolute bottom-4 left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+          <div className="absolute bottom-4 left-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
             <span>⭐</span>
             <span>{restaurant.featured.text}</span>
           </div>
         )}
       </div>
-      <div className="p-4">
-        <div className="flex items-center gap-2 mb-2">
-          <div className="flex items-center">
+      <div className="p-6">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center bg-yellow-50 px-2 py-1 rounded-full">
             <StarIcon className="w-5 h-5 text-yellow-400" />
-            <span className="ml-1 font-semibold">{restaurant.rating}</span>
+            <span className="ml-1 font-semibold text-yellow-700">{restaurant.rating}</span>
           </div>
-          <span className="text-gray-500">({restaurant.ratingCount})</span>
+          <span className="text-gray-500">({restaurant.ratingCount} reviews)</span>
         </div>
-        <h3 className="text-lg font-semibold mb-2">{restaurant.name}</h3>
-        <p className="text-gray-600 text-sm mb-3">{restaurant.description}</p>
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        <h3 className="text-xl font-semibold mb-2 line-clamp-1 text-gray-900">{restaurant.name}</h3>
+        <p className="text-gray-600 text-sm mb-4 line-clamp-2">{restaurant.description}</p>
+        <div className="flex items-center justify-between text-sm">
           <div className="flex items-center gap-2">
-            <span className="uppercase">{restaurant.city}</span>
-            <span>•</span>
-            <span>{restaurant.category}</span>
+            <span className="px-3 py-1 bg-gray-100 rounded-full text-gray-700 uppercase text-xs font-medium">
+              {restaurant.city}
+            </span>
+            <span className="px-3 py-1 bg-gray-100 rounded-full text-gray-700 text-xs font-medium">
+              {restaurant.category}
+            </span>
           </div>
-          <span>{formatPriceRange(restaurant.priceRange)} won</span>
+          <span className="text-gray-900 font-medium">{formatPriceRange(restaurant.priceRange)} won</span>
         </div>
       </div>
     </div>
